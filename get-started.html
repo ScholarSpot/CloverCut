@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Get Started — CloverCut</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ============================================================
+   CloverCut — Shared Stylesheet
+   Used by: index.html, get-started.html
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green: #1a7c3e;
+  --green-light: #f0faf4;
+  --green-mid: #d1ead9;
+  --text: #111827;
+  --muted: #6b7280;
+  --muted2: #9ca3af;
+  --border: #e5e7eb;
+  --bg: #ffffff;
+  --bg2: #f9fafb;
+  --radius: 10px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255,255,255,.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 5%;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: -.02em;
+}
+.logo-mark {
+  width: 28px; height: 28px;
+  background: var(--green);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.logo em { font-style: normal; color: var(--green); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: .875rem;
+  font-weight: 500;
+  transition: color .15s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--green);
+  color: #fff;
+  padding: .5rem 1.25rem;
+  border-radius: 100px;
+  font-size: .875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity .15s;
+  white-space: nowrap;
+}
+.nav-cta:hover { opacity: .85; }
+
+/* ── BUTTONS ── */
+.btn {
+  padding: .7rem 1.5rem;
+  border-radius: 100px;
+  font-size: .9rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all .15s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border: none;
+}
+.btn-green { background: var(--green); color: #fff; }
+.btn-green:hover { opacity: .88; }
+.btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
+.btn-outline:hover { border-color: #9ca3af; }
+
+/* ── HERO ── */
+.hero {
+  padding: 140px 5% 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-light);
+  color: var(--green);
+  font-size: .75rem;
+  font-weight: 600;
+  padding: .3rem .8rem;
+  border-radius: 100px;
+  margin-bottom: 1.5rem;
+  letter-spacing: .02em;
+}
+.hero-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: .3; }
+}
+h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+h1 em { font-style: normal; color: var(--green); }
+.hero-sub {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 420px;
+}
+.hero-actions {
+  display: flex;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+.reply-note {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .83rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.hero-right { display: flex; flex-direction: column; gap: 1rem; }
+.hero-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+}
+.hero-card-label {
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--muted2);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: .5rem;
+}
+.hero-card-val {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -.02em;
+  line-height: 1;
+}
+.hero-card-desc { font-size: .82rem; color: var(--muted); margin-top: .3rem; }
+.hero-cards-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+/* ── SECTIONS ── */
+.section { padding: 80px 5%; max-width: 1100px; margin: 0 auto; }
+.section-alt {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.sec-label {
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin-bottom: .75rem;
+}
+h2 {
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: .75rem;
+}
+.sec-sub {
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.75;
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+
+/* ── SERVICES ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+.srv { background: var(--bg); padding: 2rem 1.75rem; transition: background .15s; }
+.srv:hover { background: var(--bg2); }
+.srv-icon {
+  width: 40px; height: 40px;
+  border-radius: 9px;
+  background: var(--green-light);
+  border: 1px solid var(--green-mid);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem;
+  font-size: 1.1rem;
+}
+.srv-title { font-size: .95rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; }
+.srv-desc { color: var(--muted); font-size: .85rem; line-height: 1.65; }
+
+/* ── NICHES ── */
+.niche-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .75rem; }
+.niche {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1rem;
+  transition: border-color .15s;
+}
+.niche:hover { border-color: #9ca3af; }
+.niche-icon { font-size: 1.25rem; margin-bottom: .6rem; display: block; }
+.niche-title { font-size: .875rem; font-weight: 600; color: var(--text); margin-bottom: .25rem; }
+.niche-desc { font-size: .78rem; color: var(--muted); line-height: 1.55; }
+
+/* ── PROCESS ── */
+.process-row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  position: relative;
+}
+.process-row::before {
+  content: '';
+  position: absolute;
+  top: 20px; left: 7%; right: 7%;
+  height: 1px;
+  background: var(--border);
+  z-index: 0;
+}
+.step { position: relative; z-index: 1; text-align: center; }
+.step-num {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: .82rem;
+  font-weight: 700;
+  color: var(--green);
+}
+.step-title { font-size: .875rem; font-weight: 600; color: var(--text); margin-bottom: .3rem; }
+.step-desc { font-size: .78rem; color: var(--muted); line-height: 1.55; }
+
+/* ── WHY ── */
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.why {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem;
+  transition: border-color .15s;
+}
+.why:hover { border-color: #9ca3af; }
+.why.accent { background: var(--green-light); border-color: var(--green-mid); }
+.why-icon { font-size: 1.4rem; margin-bottom: .8rem; }
+.why-title { font-size: .9rem; font-weight: 600; color: var(--text); margin-bottom: .4rem; }
+.why-desc { font-size: .83rem; color: var(--muted); line-height: 1.65; }
+.why-badge {
+  display: inline-block;
+  background: var(--green);
+  color: #fff;
+  font-size: .7rem;
+  font-weight: 600;
+  padding: .2rem .7rem;
+  border-radius: 100px;
+  margin-top: .75rem;
+}
+
+/* ── PRICING ── */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.price {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  position: relative;
+  transition: border-color .2s;
+}
+.price:hover { border-color: #9ca3af; }
+.price.featured { border-color: var(--green); border-width: 1.5px; }
+.price-pop {
+  position: absolute;
+  top: -11px; left: 50%;
+  transform: translateX(-50%);
+  background: var(--green);
+  color: #fff;
+  font-size: .68rem;
+  font-weight: 700;
+  padding: .25rem .9rem;
+  border-radius: 100px;
+  white-space: nowrap;
+  letter-spacing: .04em;
+}
+.price-tier {
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 1rem;
+}
+.price-amount {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -.04em;
+  line-height: 1;
+  margin-bottom: .25rem;
+}
+.price-amount sup { font-size: 1.1rem; vertical-align: super; }
+.price-per { font-size: .82rem; color: var(--muted); margin-bottom: 1.5rem; }
+.price-list {
+  list-style: none;
+  margin-bottom: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.price-list li {
+  font-size: .85rem;
+  color: var(--muted);
+  display: flex;
+  align-items: flex-start;
+  gap: .55rem;
+}
+.chk {
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--green-light);
+  border: 1px solid var(--green-mid);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.chk svg { stroke: var(--green); }
+.price-btn {
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: .75rem;
+  border-radius: 100px;
+  font-size: .875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .15s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  border: none;
+  cursor: pointer;
+}
+.price-btn-outline { background: transparent; color: var(--text); border: 1.5px solid var(--border); }
+.price-btn-outline:hover { border-color: #9ca3af; }
+.price-btn-solid { background: var(--green); color: #fff; }
+.price-btn-solid:hover { opacity: .88; }
+
+/* ── TESTIMONIALS ── */
+.testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.testi {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+}
+.testi-stars { color: var(--green); font-size: .9rem; margin-bottom: .9rem; letter-spacing: .05em; }
+.testi-text { font-size: .875rem; color: var(--text); line-height: 1.7; margin-bottom: 1.25rem; }
+.testi-author { display: flex; align-items: center; gap: .7rem; }
+.testi-av {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: var(--green-light);
+  border: 1px solid var(--green-mid);
+  display: flex; align-items: center; justify-content: center;
+  font-size: .7rem;
+  font-weight: 700;
+  color: var(--green);
+  flex-shrink: 0;
+}
+.testi-name { font-size: .85rem; font-weight: 600; color: var(--text); }
+.testi-role { font-size: .75rem; color: var(--muted); }
+
+/* ── FAQ ── */
+.faq { max-width: 680px; margin: 0 auto; display: flex; flex-direction: column; gap: .5rem; }
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.faq-item.open { border-color: #9ca3af; }
+.faq-q {
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--text);
+  user-select: none;
+  background: var(--bg);
+}
+.faq-ico {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: transform .2s;
+  color: var(--muted);
+}
+.faq-item.open .faq-ico { transform: rotate(45deg); border-color: #9ca3af; color: var(--text); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-item.open .faq-a { max-height: 180px; }
+.faq-a-inner {
+  padding: .1rem 1.25rem 1rem;
+  font-size: .875rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── CTA BOX ── */
+.cta-box {
+  background: var(--green-light);
+  border: 1px solid var(--green-mid);
+  border-radius: 20px;
+  padding: 4rem 5%;
+  text-align: center;
+  margin: 80px 5%;
+}
+.cta-box h2 { margin-bottom: .75rem; }
+.cta-box p { color: var(--muted); font-size: 1rem; max-width: 420px; margin: 0 auto 2rem; line-height: 1.7; }
+.cta-actions { display: flex; gap: .75rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1rem; }
+.gmail-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: #fff;
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  padding: .75rem 1.5rem;
+  border-radius: 100px;
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color .15s;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.gmail-btn:hover { border-color: #9ca3af; }
+.cta-note {
+  font-size: .8rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .35rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.footer-logo { font-size: .95rem; font-weight: 700; color: var(--text); text-decoration: none; letter-spacing: -.01em; }
+.footer-logo em { font-style: normal; color: var(--green); }
+.footer-links { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+.footer-links a { font-size: .82rem; color: var(--muted); text-decoration: none; transition: color .15s; }
+.footer-links a:hover { color: var(--text); }
+.footer-copy { font-size: .78rem; color: var(--muted2); }
+
+/* ── UTILITIES ── */
+.divider { border: none; border-top: 1px solid var(--border); }
+.fade { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+.fade.in { opacity: 1; transform: none; }
+
+/* ── GET STARTED PAGE ── */
+.gs-wrap { max-width: 720px; margin: 0 auto; padding: 100px 5% 80px; }
+.gs-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: .875rem;
+  font-weight: 500;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin-bottom: 2.5rem;
+  padding: 0;
+  transition: color .15s;
+  text-decoration: none;
+}
+.gs-back:hover { color: var(--text); }
+.gs-back svg { transition: transform .15s; }
+.gs-back:hover svg { transform: translateX(-3px); }
+.gs-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--green-light);
+  color: var(--green);
+  font-size: .72rem;
+  font-weight: 600;
+  padding: .3rem .8rem;
+  border-radius: 100px;
+  margin-bottom: 1.25rem;
+  letter-spacing: .04em;
+}
+.gs-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: .75rem;
+}
+.gs-title em { font-style: normal; color: var(--green); }
+.gs-sub { color: var(--muted); font-size: 1rem; line-height: 1.7; max-width: 520px; margin-bottom: 3rem; }
+.gs-steps { display: flex; flex-direction: column; gap: 0; }
+.gs-step { display: flex; gap: 1.5rem; position: relative; padding-bottom: 2.5rem; }
+.gs-step:last-child { padding-bottom: 0; }
+.gs-step-left { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+.gs-step-circle {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: .875rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.gs-step-line { flex: 1; width: 2px; background: var(--green-mid); margin-top: 4px; }
+.gs-step:last-child .gs-step-line { display: none; }
+.gs-step-content { padding-top: 8px; }
+.gs-step-num-label {
+  font-size: .7rem;
+  font-weight: 600;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: .3rem;
+}
+.gs-step-heading { font-size: 1.05rem; font-weight: 700; color: var(--text); margin-bottom: .5rem; }
+.gs-step-desc { color: var(--muted); font-size: .9rem; line-height: 1.7; margin-bottom: .9rem; }
+.gs-step-tip {
+  background: var(--green-light);
+  border: 1px solid var(--green-mid);
+  border-radius: 10px;
+  padding: .9rem 1.1rem;
+  font-size: .83rem;
+  color: var(--text);
+  line-height: 1.8;
+}
+.gs-step-tip strong { color: var(--green); }
+.gs-step-tip + .gs-step-tip { margin-top: .75rem; }
+.gs-step-visual {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  font-size: .82rem;
+  color: var(--muted);
+  font-family: monospace;
+  margin-top: .75rem;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.gs-step-visual b { color: var(--text); font-family: 'Plus Jakarta Sans', sans-serif; font-size: .8rem; }
+.gs-step-visual a { color: var(--green); }
+.gs-cta-box {
+  background: var(--green-light);
+  border: 1px solid var(--green-mid);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+.gs-cta-box h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -.02em; color: var(--text); margin-bottom: .5rem; }
+.gs-cta-box p { color: var(--muted); font-size: .9rem; margin-bottom: 1.5rem; line-height: 1.65; }
+.gs-email-preview {
+  background: #fff;
+  border: 1.5px solid var(--green-mid);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
+  font-size: .875rem;
+  line-height: 1.8;
+  color: var(--text);
+}
+.gs-email-row { display: flex; gap: .5rem; margin-bottom: .2rem; font-size: .8rem; }
+.gs-email-field { font-weight: 700; color: var(--muted2); min-width: 60px; }
+.gs-email-val { color: var(--green); font-weight: 600; }
+.gs-email-divider { border: none; border-top: 1px solid var(--border); margin: .75rem 0; }
+.gs-email-body { font-size: .83rem; color: var(--muted); line-height: 1.9; white-space: pre-wrap; }
+.gs-email-body b { color: var(--text); font-weight: 600; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  nav { padding: 0 4%; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; padding: 110px 4% 60px; gap: 2.5rem; }
+  .hero-right { display: grid; grid-template-columns: 1fr 1fr; }
+  .hero-cards-row { grid-template-columns: 1fr 1fr; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .niche-grid { grid-template-columns: repeat(2, 1fr); }
+  .process-row { grid-template-columns: repeat(2, 1fr); }
+  .process-row::before { display: none; }
+  .why-grid { grid-template-columns: 1fr 1fr; }
+  .pricing-grid { grid-template-columns: 1fr; }
+  .testi-grid { grid-template-columns: 1fr; }
+  .section { padding: 60px 4%; }
+  .cta-box { margin: 60px 4%; padding: 3rem 4%; }
+  footer { flex-direction: column; align-items: flex-start; gap: .75rem; }
+}
+@media (max-width: 540px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .niche-grid { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .hero-right { grid-template-columns: 1fr; }
+  .hero-cards-row { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="index.html">
+    <img src="CloverCut_Film_Logo.png" alt="CloverCut Logo" style="width:32px;height:32px;object-fit:contain;border-radius:7px;"/>
+    Clover<em>Cut</em>
+  </a>
+    Clover<em>Cut</em>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+  </ul>
+  <a class="nav-cta" href="index.html">Back to Portfolio</a>
+</nav>
+
+<!-- MAIN -->
+<div class="gs-wrap">
+
+  <a class="gs-back" href="index.html">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="10 3 5 8 10 13"/></svg>
+    Back to Portfolio
+  </a>
+
+  <div class="gs-tag">✂ CloverCut · How to Submit</div>
+  <h1 class="gs-title">Start in 3 <em>Simple</em> Steps</h1>
+  <p class="gs-sub">No complicated forms. No confusing portals. Upload your footage to Google Drive, drop us an email, and we'll handle the rest.</p>
+
+  <div class="gs-steps">
+
+    <!-- STEP 1 -->
+    <div class="gs-step">
+      <div class="gs-step-left">
+        <div class="gs-step-circle">1</div>
+        <div class="gs-step-line"></div>
+      </div>
+      <div class="gs-step-content">
+        <div class="gs-step-num-label">Step One</div>
+        <div class="gs-step-heading">Upload Your Footage to Google Drive</div>
+        <div class="gs-step-desc">Open Google Drive and upload all your raw video files. This is the easiest way to share large files — no size limits, no compression.</div>
+        <div class="gs-step-tip">
+          <strong>📁 How to upload:</strong><br/>
+          1. Go to <strong>drive.google.com</strong> and sign in.<br/>
+          2. Click <strong>+ New</strong> → <strong>New Folder</strong>. Name it something like <em>"CloverCut – [Your Channel]"</em>.<br/>
+          3. Open that folder, then drag &amp; drop your video files in (or click <strong>+ New → File upload</strong>).
+        </div>
+        <div class="gs-step-tip" style="margin-top:.75rem;background:#fff;border-color:var(--border)">
+          <strong>🔗 Share the folder:</strong><br/>
+          Right-click the folder → <strong>Share</strong> → under "General access", choose <strong>"Anyone with the link"</strong> → click <strong>Copy link</strong>. You'll paste this in the email.
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="gs-step">
+      <div class="gs-step-left">
+        <div class="gs-step-circle">2</div>
+        <div class="gs-step-line"></div>
+      </div>
+      <div class="gs-step-content">
+        <div class="gs-step-num-label">Step Two</div>
+        <div class="gs-step-heading">Compose Your Email</div>
+        <div class="gs-step-desc">
+          Write to us at <strong style="color:var(--green)">clovercut.inc@gmail.com</strong>. Paste the Google Drive link and describe what you need.<br/><br/>
+          <strong style="color:var(--text)">⚠️ Important:</strong> Include a link to a YouTube video that matches the editing style you want. This helps us understand your vision immediately — no guesswork.
+        </div>
+        <div class="gs-step-visual"><b>To:</b> clovercut.inc@gmail.com
+<b>Subject:</b> New Editing Request – [Your Channel / Video Title]
+
+Hi CloverCut,
+
+I'd like to get a video edited. Here are my details:
+
+📁 Footage link:    [Paste your Google Drive link here]
+✂️  What I need:    [e.g. Full edit with captions, music &amp; colour grade]
+🎯 Style / Vibe:   [e.g. Fast-paced &amp; energetic / Clean and minimal]
+🎬 Reference video: [YouTube link — editing style you want us to match]
+⏱  Deadline:       [e.g. Within 48 hours / No rush]
+💬 Extra notes:    [Any specific cuts, text, or music preferences]
+
+Thanks,
+[Your Name]</div>
+        <div class="gs-step-tip" style="margin-top:.75rem">
+          <strong>💡 Why include a reference video?</strong><br/>
+          A reference video tells us more about your desired style than a paragraph of description ever could. Link any YouTube video — yours, a competitor's, or any creator whose editing you love.
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="gs-step">
+      <div class="gs-step-left">
+        <div class="gs-step-circle">3</div>
+      </div>
+      <div class="gs-step-content">
+        <div class="gs-step-num-label">Step Three</div>
+        <div class="gs-step-heading">Hit Send — We Reply Fast</div>
+        <div class="gs-step-desc">That's it! We'll review your project and reply within 2 hours (usually much faster) to confirm details, pricing, and your delivery timeline.</div>
+        <div class="gs-step-tip">
+          <strong>⚡ What happens next:</strong><br/>
+          We'll reply with a confirmation and any follow-up questions. Once you approve, we start editing immediately. Your finished video will be delivered via Google Drive, ready to publish.
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /gs-steps -->
+
+  <!-- CTA BOX -->
+  <div class="gs-cta-box">
+    <h3>Ready? Open Your Email Draft Now</h3>
+    <p>Click below to open a pre-filled email in your email app — just paste your Drive link and reference video, then hit send.</p>
+
+    <div class="gs-email-preview">
+      <div class="gs-email-row"><span class="gs-email-field">To:</span><span class="gs-email-val">clovercut.inc@gmail.com</span></div>
+      <div class="gs-email-row"><span class="gs-email-field">Subject:</span><span style="color:var(--text)">New Editing Request – [Your Channel / Video Title]</span></div>
+      <hr class="gs-email-divider"/>
+      <div class="gs-email-body">Hi CloverCut,
+
+I'd like to get a video edited. Here are my details:
+
+<b>📁 Footage link:</b>    [Paste your Google Drive link]
+<b>✂️ What I need:</b>     [e.g. Full edit with captions, music &amp; colour grade]
+<b>🎯 Style / Vibe:</b>    [e.g. Fast-paced &amp; energetic / Clean and minimal]
+<b>🎬 Reference video:</b> [YouTube link — editing style you want]
+<b>⏱ Deadline:</b>        [e.g. Within 48 hours / No rush]
+<b>💬 Extra notes:</b>     [Any specific preferences]
+
+Thanks,
+[Your Name]</div>
+    </div>
+
+    <a class="btn btn-green" style="display:inline-block" href="mailto:clovercut.inc@gmail.com?subject=New%20Editing%20Request%20%E2%80%93%20%5BYour%20Channel%20/%20Video%20Title%5D&body=Hi%20CloverCut%2C%0A%0AI%27d%20like%20to%20get%20a%20video%20edited.%20Here%20are%20my%20details%3A%0A%0AFootage%20link%3A%20%5BPaste%20your%20Google%20Drive%20link%20here%5D%0AWhat%20I%20need%3A%20%5Be.g.%20Full%20edit%20with%20captions%2C%20music%20%26%20colour%20grade%5D%0AStyle%20/%20Vibe%3A%20%5Be.g.%20Fast-paced%20%26%20energetic%20/%20Clean%20and%20minimal%5D%0AReference%20video%3A%20%5BYouTube%20link%20of%20a%20video%20with%20the%20editing%20style%20you%20want%5D%0ADeadline%3A%20%5Be.g.%20Within%2048%20hours%20/%20No%20rush%5D%0AExtra%20notes%3A%20%5BAny%20specific%20cuts%2C%20text%2C%20or%20music%20preferences%5D%0A%0AThanks%2C%0A%5BYour%20Name%5D">
+      Open Email Draft ✉️
+    </a>
+
+    <div style="margin-top:1rem;font-size:.8rem;color:var(--muted);display:flex;align-items:center;justify-content:center;gap:.35rem">
+      <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round"><circle cx="8" cy="8" r="6"/><polyline points="8 5 8 8 10 10"/></svg>
+      Opens in Gmail, Apple Mail, or your default email app
+    </div>
+  </div>
+
+</div><!-- /gs-wrap -->
+
+<!-- FOOTER -->
+<footer>
+  <a class="footer-logo" href="index.html">Clover<em>Cut</em></a>
+  <div class="footer-links">
+    <a href="index.html#services">Services</a>
+    <a href="index.html#process">Process</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="mailto:clovercut.inc@gmail.com">clovercut.inc@gmail.com</a>
+  </div>
+  <div class="footer-copy">© 2025 CloverCut. All rights reserved.</div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: .08 });
+document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
