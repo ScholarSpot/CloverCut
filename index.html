@@ -667,6 +667,63 @@ footer {
 .gs-email-body { font-size: .83rem; color: var(--muted); line-height: 1.9; white-space: pre-wrap; }
 .gs-email-body b { color: var(--text); font-weight: 600; }
 
+/* ── PORTFOLIO ── */
+.portfolio-scroll {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--green-mid) transparent;
+}
+.portfolio-scroll::-webkit-scrollbar { height: 4px; }
+.portfolio-scroll::-webkit-scrollbar-track { background: transparent; }
+.portfolio-scroll::-webkit-scrollbar-thumb { background: var(--green-mid); border-radius: 99px; }
+.portfolio-item {
+  flex: 0 0 auto;
+  width: 220px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+.portfolio-video-wrap {
+  width: 220px;
+  height: 390px;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid var(--border);
+  position: relative;
+}
+.portfolio-video-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.portfolio-credit {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  padding: 0 .25rem;
+}
+.portfolio-credit-avatar {
+  width: 26px; height: 26px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-size: .65rem;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.portfolio-credit-info { display: flex; flex-direction: column; gap: 1px; }
+.portfolio-credit-name { font-size: .78rem; font-weight: 600; color: var(--text); }
+.portfolio-credit-role { font-size: .7rem; color: var(--muted); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 860px) {
   nav { padding: 0 4%; }
@@ -704,6 +761,7 @@ footer {
     Clover<em>Cut</em>
   </a>
   <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
     <li><a href="#services">Services</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#pricing">Pricing</a></li>
@@ -755,6 +813,83 @@ footer {
     </div>
   </div>
 </div>
+
+<hr class="divider"/>
+
+<!-- ── PORTFOLIO ── -->
+<section class="section fade" id="work">
+  <div class="sec-label">Our Work</div>
+  <h2>Sample Edits</h2>
+  <p class="sec-sub" style="margin-bottom:2rem">Short-form content edited by our team — real results, real style.</p>
+  <div class="portfolio-scroll">
+
+    <div class="portfolio-item">
+      <div class="portfolio-video-wrap">
+        <video src="1G6UA06bkoRRSPOXszSfvnFLaw.mp4" controls playsinline muted loop></video>
+      </div>
+      <div class="portfolio-credit">
+        <div class="portfolio-credit-avatar">AK</div>
+        <div class="portfolio-credit-info">
+          <div class="portfolio-credit-name">Edited by Team</div>
+          <div class="portfolio-credit-role">Short-Form Edit</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-video-wrap">
+        <video src="6jNlPg1H7EnIq1bT3hnaVlGCZI.mp4" controls playsinline muted loop></video>
+      </div>
+      <div class="portfolio-credit">
+        <div class="portfolio-credit-avatar">AK</div>
+        <div class="portfolio-credit-info">
+          <div class="portfolio-credit-name">Edited by Team</div>
+          <div class="portfolio-credit-role">Short-Form Edit</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-video-wrap">
+        <video src="Let_me_know_your_thoughts_on_this_Recreated_an_Iman_Gadhzi_clip_in_my_own_style___videoeditor_m.mp4" controls playsinline muted loop></video>
+      </div>
+      <div class="portfolio-credit">
+        <div class="portfolio-credit-avatar">AK</div>
+        <div class="portfolio-credit-info">
+          <div class="portfolio-credit-name">Edited by Team</div>
+          <div class="portfolio-credit-role">Iman Gadzhi Style Recreate</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-video-wrap">
+        <video src="This_is_what_high-converting_editing_looks_like_If_you_want_your_content_to_stand_out_like_this_.mp4" controls playsinline muted loop></video>
+      </div>
+      <div class="portfolio-credit">
+        <div class="portfolio-credit-avatar">AK</div>
+        <div class="portfolio-credit-info">
+          <div class="portfolio-credit-name">Edited by Team</div>
+          <div class="portfolio-credit-role">High-Converting Edit</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <div class="portfolio-video-wrap">
+        <video src="Would_love_to_know_your_thoughts______graphicdesign__motiondesign__videoeditor__premierepro__aft.mp4" controls playsinline muted loop></video>
+      </div>
+      <div class="portfolio-credit">
+        <div class="portfolio-credit-avatar">AK</div>
+        <div class="portfolio-credit-info">
+          <div class="portfolio-credit-name">Edited by Team</div>
+          <div class="portfolio-credit-role">Motion Design Edit</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <hr class="divider"/>
 
@@ -885,7 +1020,7 @@ footer {
 
         <div class="price">
           <div class="price-tier">Shorts Editing</div>
-          <div class="price-amount"><sup>$</sup>10</div>
+          <div class="price-amount"><sup>$</sup>5</div>
           <div class="price-per">starting from · per short</div>
           <ul class="price-list">
             <li><span class="chk"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>YouTube Shorts &amp; Reels</li>
@@ -900,7 +1035,7 @@ footer {
         <div class="price featured">
           <div class="price-pop">Most Popular</div>
           <div class="price-tier">Long-Form Videos</div>
-          <div class="price-amount"><sup>$</sup>50</div>
+          <div class="price-amount"><sup>$</sup>25</div>
           <div class="price-per">starting from · per video</div>
           <ul class="price-list">
             <li><span class="chk"><svg width="9" height="9" viewBox="0 0 10 10" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="1.5 5 4 7.5 8.5 2.5"/></svg></span>YouTube videos any length</li>
